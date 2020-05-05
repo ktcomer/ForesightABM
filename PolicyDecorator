@@ -1,0 +1,31 @@
+IndividualMandate = False
+CoverageMandate = False
+IndividualSubsidies = False
+RiskAdjustment = False
+Reinsurance = False
+RiskCorridors = False
+
+IMAmount = 472.01
+IMPercent = 2.5
+FPL = 8050
+
+def policy_decorator(model_run):
+    def wrapper():
+        print("Policies in place: ")
+        print("Individual Mandate: " + str(IndividualMandate))
+        print("Individual Mandate Tax Penalty: " + str(IMPercent))
+        print("Individual Mandate Lump Sum Penalty: " + str(IMAmount))
+        print("Coverage Mandate: " + str(CoverageMandate))
+        print("Individual Subsidies: " + str(IndividualSubsidies))
+        print("Federal Poverty Level: " + str(FPL))
+        print("Risk Adjustment: " + str(RiskAdjustment))
+        print("Reinsurance: " + str(Reinsurance))
+        print("Risk Corridors: " + str(RiskCorridors))
+        model_run()
+        
+    return wrapper
+    
+model_run = policy_decorator(model_run)
+
+model_run()
+    
